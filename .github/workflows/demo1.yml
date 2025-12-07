@@ -3,11 +3,16 @@ on:
   pull_request: 
     types: 
       - opened
+    branches:
+      - main
+      - dev # if push to dev    
   workflow_dispatch:
   push:
     branches:
       - main
       - dev # if push to dev
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
